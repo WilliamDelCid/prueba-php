@@ -1,0 +1,8 @@
+# Evita ingresar a cualquier directorio desde la url
+Options All -Indexes
+RewriteEngine on
+
+# Condiciones verdaderas para buscar un directorio valido
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
